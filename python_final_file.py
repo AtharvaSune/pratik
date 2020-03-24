@@ -22,35 +22,35 @@ r = ode(newton).set_integrator('dopri5')
 
 t0 = 0
 
-print('Enter the coordinates of the initial position of the electron :')
-coor_x = sys.argv[1]#input('Enter the x co-ordinate: ')
-coor_y = sys.argv[2]#input('Enter the y co-ordinate: ')
-coor_z = sys.argv[3]#input('Enter the z co-ordinate: ')
+# print('Enter the coordinates of the initial position of the electron :')
+coor_x = float(sys.argv[1])
+coor_y = float(sys.argv[2])
+coor_z = float(sys.argv[3])
 x0 = np.array([int(coor_x),int(coor_y),int(coor_z)])
 
-print('Enter the initial velocity of the electron:')
-vel_x = sys.argv[4]#input('Enter the velocity in x direction: ')
-vel_y = sys.argv[5]#input('Enter the velocity in y direction: ')
-vel_z = sys.argv[6]#input('Enter the velocity in z direction: ')
+# print('Enter the initial velocity of the electron:')
+vel_x = float(sys.argv[4])
+vel_y = float(sys.argv[5])
+vel_z = float(sys.argv[6])
 v0 = np.array([int(vel_x),int(vel_y),int(vel_z)])
 
-print('Enter the magnitude of magnetic field in space:')
-B_x = sys.argv[7]#input('Enter the magnitude of magnetic field in x direction: ')
-B_y = sys.argv[8]#input('Enter the magnitude of magnetic field in y direction: ')
-B_z = sys.argv[9]#input('Enter the magnitude of magnetic field in z direction: ')
+# print('Enter the magnitude of magnetic field in space:')
+B_x = float(sys.argv[7])
+B_y = float(sys.argv[8])
+B_z = float(sys.argv[9])
 B0 = np.array([int(B_x),int(B_y),int(B_z)])
 
-print('Enter the magnitude of electric field in space :')
-E_x = sys.argv[10]#input('Enter the magnitude of electric field in x direction: ')
-E_y = sys.argv[11]#input('Enter the magnitude of electric field in y direction: ')
-E_z = sys.argv[12]#input('Enter the magnitude of electric field in z direction: ')
+# print('Enter the magnitude of electric field in space :')
+E_x = float(sys.argv[10])
+E_y = float(sys.argv[11])
+E_z = float(sys.argv[12])
 E0 = np.array([int(E_x),int(E_y),int(E_z)])
 
-Q0 = sys.argv[13]#input('Enter the magnitude of charge: ')
+Q0 = float(sys.argv[13])
 
 #Radius of the helical path formed
 Radius = np.sqrt(v0.dot(v0) - (np.dot(B0,v0)/B0.dot(B0))**2)
-print('Radius: ',Radius)
+# print('Radius: ',Radius)
 
 initial_cond = np.concatenate((x0,v0))
 r.set_initial_value(initial_cond,t0).set_f_params(int(Q0),1.0,B0,E0)
