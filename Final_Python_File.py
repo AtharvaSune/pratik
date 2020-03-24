@@ -1,3 +1,4 @@
+import csv
 import numpy as np
 from scipy.integrate import ode
 import matplotlib.pyplot as plt
@@ -54,9 +55,22 @@ while r.successful() and r.t<t1:
     maxX,maxY,maxZ = max(maxX,r.y[0],r.y[6]),max(maxY,r.y[1],r.y[7]),max(maxZ,r.y[2],r.y[8])
     minX,minY,minZ = min(minX,r.y[0],r.y[6]),min(minY,r.y[1],r.y[7]),min(minZ,r.y[2],r.y[8])
 
-positions0 = np.array(positions0)
-positions1 = np.array(positions1)
 
+
+print(len(positions0[0]))
+with open("file_no_io_positions0.csv", "w", newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow([0, 1, 2])
+    writer.writerows(positions0)
+    del writer
+
+with open("file_no_io_positions1.csv", "w", newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow([0, 1, 2])
+    writer.writerows(positions1)
+    del writer
+
+"""
 fig = plt.figure()
 ax1 = fig.add_subplot(111,projection = '3d')
 ax1.plot3D(positions0[:,0],positions0[:,1],positions0[:,2])
@@ -66,3 +80,4 @@ ax1.set_ylabel('y-axis',color='b')
 ax1.set_zlabel('z-axis',color='b')
 mpl.pyplot.title('Brillouin Flow (Space Charge Effect Considered)', loc='center',color='purple')
 plt.show()
+"""
