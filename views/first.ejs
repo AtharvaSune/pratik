@@ -6,9 +6,9 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h2>Graph 1</h2>
     <div id="positions0"></div>
+    <h2>Graph 2</h2>
     <div id="positions1"></div>
     <script>
       x0= '<%- x0 %>';
@@ -62,7 +62,7 @@
           opacity: 1,
           line: {
             width: 6,
-            // color: c,
+            color: 'rgb(255, 165, 0)',
             reversescale: false
           }
         }], {
