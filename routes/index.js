@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/first', function(req, res, next) {
   var spawn = require("child_process").spawn;
-  var process = spawn('python', ["./Final_Python_File.py"]); // py file => Final_Python_File.py
+  var process = spawn('/home/atharva/PyTorch/bin/python3', ["./Final_Python_File.py"]); // py file => Final_Python_File.py
   var positions0 = []; // variable to plot
   var positions1 = [];
 
@@ -70,25 +70,29 @@ router.get('/second', function(req, res, next) {
 
 router.post('/second', (req, res)=>{
   var spawn = require("child_process").spawn;
-  var process = spawn('python', 
+  console.log(req)
+  var process = spawn('/home/atharva/PyTorch/bin/python3', 
                   [ "./python_final_file.py",
-                    req.query.x, 
-                    req.query.y,
-                    req.query.z,
-                    req.query.vx,
-                    req.query.vy,
-                    req.query.vz,
-                    req.query.bx,
-                    req.query.by,
-                    req.query.bz,
-                    req.query.ex,
-                    req.query.ey,
-                    req.query.ez,
-                    req.query.q
+                    req.body.x, 
+                    req.body.y,
+                    req.body.z,
+                    req.body.vx,
+                    req.body.vy,
+                    req.body.vz,
+                    req.body.bx,
+                    req.body.by,
+                    req.body.bz,
+                    req.body.ex,
+                    req.body.ey,
+                    req.body.ez,
+                    req.body.q
                   ]); // py file => python_final_file.py which requires inputs 13 inputs for info on inputs view the file
   var positions=[];
   let x = [], y = [], z = [];
-  process.on("close", (err)=>{
+  process.stdout.on('data', (data)=>{
+    console.log(data.toString())
+  })
+  .on('close', (err)=>{
     fs.createReadStream("./file_io_positions0.csv")
     .pipe(csv())
     .on('data', (row)=>{
