@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/first', function(req, res, next) {
   var spawn = require("child_process").spawn;
-  var process = spawn('/home/atharva/PyTorch/bin/python3', ["./Final_Python_File.py"]); // py file => Final_Python_File.py
+  var process = spawn('python', ["./Final_Python_File.py"]); // py file => Final_Python_File.py
   var positions0 = []; // variable to plot
   var positions1 = [];
 
@@ -71,7 +71,7 @@ router.get('/second', function(req, res, next) {
 router.post('/second', (req, res)=>{
   var spawn = require("child_process").spawn;
   console.log(req)
-  var process = spawn('/home/atharva/PyTorch/bin/python3', 
+  var process = spawn('python', 
                   [ "./python_final_file.py",
                     req.body.x, 
                     req.body.y,
