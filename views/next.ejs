@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    </head>
+    <body>
+        <h1><%= title %></h1>
+        <p>Welcome to <%= title %></p>
+        <div id="positions0"></div>
+        <script>
+            x0 = '<%- x %>';
+            y0 = '<%- y %>';
+            z0 = '<%- z %>';
+            x0 = x0.split(',')
+            y0 = y0.split(',')
+            z0 = z0.split(',')
+            console.log(x0.length, y0.length, z0.length)
+            for (let i = 0; i < x0.length; i++) {
+                x0[i] = parseFloat(x0[i]);
+                y0[i] = parseFloat(y0[i]);
+                z0[i] = parseFloat(z0[i]);
+            }
+            Plotly.newPlot(document.getElementById('positions0'), [{
+                    type: 'scatter3d',
+                    mode: 'lines',
+                    x: x0,
+                    y: y0,
+                    z: z0,
+                    opacity: 1,
+                    line: {
+                        width: 6,
+                        // color: c,
+                        reversescale: false
+                    }
+                }], {
+                    height: 640
+                });
+        </script>
+    </body>
+</html>

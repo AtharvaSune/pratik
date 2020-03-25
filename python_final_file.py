@@ -2,6 +2,7 @@
 import sys
 import numpy as np
 from scipy.integrate import ode
+import csv
 
 # Initialising the Parameters
 def newton(t,Y,q,m,B,E):
