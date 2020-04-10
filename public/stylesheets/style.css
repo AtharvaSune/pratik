@@ -4,5 +4,25 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+.centered {
+  align-items: center;
+  margin: 10px 50%;
+  padding: 5px;
+  text-align: center;
+}
+
+.plot {
+  /* padding: 10px; */
+  border: 2px solid black;
+}
+
+#first {
+  margin-top: 5.5em;
+}
+
+h1 {
+  font-size: 4rem;
 }

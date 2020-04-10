@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
 
-<body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <p>For the first python program, click <a href="/first">here</a></p>
-    <p>For the second python program, click <a href="/second">here</a></p>
-</body>
+  <body>
+    <div class="centered ui container">
+      <h1><%= title %></h1>
+    </div>
+    <div class="centered ui container" id="first">
+      <a href="/first" class="ui primary button">Brillouin Flow Model</a>
+    </div>
+    <div class="centered ui container" id="second">
+      <a href="/second" class="ui primary button">Charged Particle Model</a>
+    </div>
+  </body>
 </html>

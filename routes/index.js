@@ -5,7 +5,7 @@ const fs = require("fs");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', {title: 'Express'})
+  res.render('index', {title: 'Home Page'})
 })
 
 router.get('/first', function(req, res, next) {
@@ -58,14 +58,14 @@ router.get('/first', function(req, res, next) {
           console.log(err);
           return;
         }
-        res.render('first', { title: 'Express', x0: positions0x, y0: positions0y, z0: positions0z, x1: positions1x, y1: positions1y, z1: positions1z });
+        res.render('first', { title: 'Brillouin Flow Model', x0: positions0x, y0: positions0y, z0: positions0z, x1: positions1x, y1: positions1y, z1: positions1z });
       })
     })
   });
 })
 
 router.get('/second', function(req, res, next) {
-  res.render('form', { title: 'Express' })
+  res.render('form', { title: 'Charged Particle Model' })
 })
 
 router.post('/second', (req, res)=>{
@@ -108,7 +108,7 @@ router.post('/second', (req, res)=>{
       return;
     }
     
-    res.render('next', {title: 'Express', x: x, y: y, z: z})
+    res.render('next', {title: 'Charged Particle Model', x: x, y: y, z: z})
   })
   })
 })

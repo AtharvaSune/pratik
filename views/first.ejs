@@ -2,72 +2,95 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   </head>
   <body>
-    <h2>Graph 1</h2>
-    <div id="positions0"></div>
-    <h2>Graph 2</h2>
-    <div id="positions1"></div>
+    <div class="ui container">
+      <div class="ui grid">
+        <h1 class="twelve wide column"><%= title %></h1>
+        <div class="four wide column centered">
+          <a class="ui button" href="/">Back</a>
+        </div>
+      </div>
+      <h2>Graph 1</h2>
+      <div class="plot" id="positions0"></div>
+      <h2>Graph 2</h2>
+      <div class="plot" id="positions1"></div>
+    </div>
     <script>
-      x0= '<%- x0 %>';
-      y0= '<%- y0 %>';
-      z0= '<%- z0 %>';
-      x0 = x0.split(',')
-      y0 = y0.split(',')
-      z0 = z0.split(',')
-      console.log(x0.length, y0.length, z0.length)
+      x0 = "<%- x0 %>";
+      y0 = "<%- y0 %>";
+      z0 = "<%- z0 %>";
+      x0 = x0.split(",");
+      y0 = y0.split(",");
+      z0 = z0.split(",");
+      console.log(x0.length, y0.length, z0.length);
       for (let i = 0; i < x0.length; i++) {
         x0[i] = parseFloat(x0[i]);
         y0[i] = parseFloat(y0[i]);
         z0[i] = parseFloat(z0[i]);
       }
 
-      x1 = '<%- x1 %>';
-      y1 = '<%- y1 %>';
-      z1 = '<%- z1 %>';
-      x1 = x1.split(',')
-      y1 = y1.split(',')
-      z1 = z1.split(',')
+      x1 = "<%- x1 %>";
+      y1 = "<%- y1 %>";
+      z1 = "<%- z1 %>";
+      x1 = x1.split(",");
+      y1 = y1.split(",");
+      z1 = z1.split(",");
       for (let i = 0; i < x1.length; i++) {
         x1[i] = parseFloat(x1[i]);
         y1[i] = parseFloat(y1[i]);
         z1[i] = parseFloat(z1[i]);
       }
 
-      Plotly.newPlot(document.getElementById('positions0'), [{
-          type: 'scatter3d',
-          mode: 'lines',
-          x: x0,
-          y: y0,
-          z: z0,
-          opacity: 1,
-          line: {
-            width: 6,
-            // color: c,
-            reversescale: false
-          }
-        }], {
-          height: 640
-        });
+      Plotly.newPlot(
+        document.getElementById("positions0"),
+        [
+          {
+            type: "scatter3d",
+            mode: "lines",
+            x: x0,
+            y: y0,
+            z: z0,
+            opacity: 1,
+            line: {
+              width: 6,
+              // color: c,
+              reversescale: false,
+            },
+          },
+        ],
+        {
+          height: 640,
+        }
+      );
 
-
-        Plotly.newPlot(document.getElementById('positions1'), [{
-          type: 'scatter3d',
-          mode: 'lines',
-          x: x1,
-          y: y1,
-          z: z1,
-          opacity: 1,
-          line: {
-            width: 6,
-            color: 'rgb(255, 165, 0)',
-            reversescale: false
-          }
-        }], {
-          height: 640
-        });
+      Plotly.newPlot(
+        document.getElementById("positions1"),
+        [
+          {
+            type: "scatter3d",
+            mode: "lines",
+            x: x1,
+            y: y1,
+            z: z1,
+            opacity: 1,
+            line: {
+              width: 6,
+              color: "rgb(255, 165, 0)",
+              reversescale: false,
+            },
+          },
+        ],
+        {
+          height: 640,
+        }
+      );
     </script>
   </body>
 </html>
