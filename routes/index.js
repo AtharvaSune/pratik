@@ -70,7 +70,7 @@ router.get('/second', function(req, res, next) {
 
 router.post('/second', (req, res)=>{
   var spawn = require("child_process").spawn;
-  console.log(req)
+  // console.log(req)
   var process = spawn('python', 
                   [ "./python_final_file.py",
                     req.body.x, 
@@ -90,7 +90,7 @@ router.post('/second', (req, res)=>{
   var positions=[];
   let x = [], y = [], z = [];
   process.stdout.on('data', (data)=>{
-    console.log(data.toString())
+    // console.log(data.toString())
   })
   .on('close', (err)=>{
     fs.createReadStream("./file_io_positions0.csv")
