@@ -5,7 +5,7 @@ const fs = require("fs");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', {title: 'Home Page'})
+  res.render('index', {title: 'Virtual Lab Project'})
 })
 
 router.get('/first', function(req, res, next) {
